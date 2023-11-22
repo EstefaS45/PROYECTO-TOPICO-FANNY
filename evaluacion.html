@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="CSS/evaluacion.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVALUACIÓN</title>
+    <style>
+        body{
+            background-image: url(IMAGES/BG3.gif);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="menu.html"><img src="IMAGES/LOGO3.png" alt="Logo" class="logo"></a>
+    </header>
+    <div class="container">
+        <h1>Plan de Vida y Carrera</h1>
+        
+        <div class="question">
+            <img src="IMAGES/LOGO3.png" alt="Imagen relacionada con el plan de vida y carrera">
+            <p>1. ¿Cuál es tu principal objetivo a largo plazo en tu carrera?</p>
+            <form id="q1">
+                <label>
+                    <input type="radio" name="q1" value="incorrecto"> Ganar mucho dinero
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="q1" value="correcto"> Realizar un trabajo que me apasione y me haga crecer personal y profesionalmente
+                </label>
+            </form>
+        </div>
+    
+        <!-- Pregunta 2 -->
+        <div class="question">
+            <img src="IMAGES/LOGO3.png" alt="Imagen relacionada con el plan de vida y carrera">
+            <p>2. ¿Cómo te imaginas tu vida personal y profesional en los próximos 5 años?</p>
+            <form id="q2">
+                <label>
+                    <input type="radio" name="q2" value="incorrecto"> Sin muchos cambios, seguiré como estoy ahora
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="q2" value="correcto"> Experimentando crecimiento y nuevas oportunidades en ambas áreas
+                </label>
+            </form>
+        </div>
+    
+        <!-- Pregunta 3 -->
+        <div class="question">
+            <img src="IMAGES/LOGO3.png" alt="Imagen relacionada con el plan de vida y carrera">
+            <p>3. ¿Qué importancia le das al equilibrio entre tu vida personal y profesional?</p>
+            <form id="q3">
+                <label>
+                    <input type="radio" name="q3" value="correcto"> Muy importante, busco un equilibrio saludable entre ambas áreas
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="q3" value="incorrecto"> La carrera es lo más importante, la vida personal puede esperar
+                </label>
+            </form>
+        </div>
+    
+        <!-- Pregunta 4 -->
+        <div class="question">
+            <img src="IMAGES/LOGO3.png" alt="Imagen relacionada con el plan de vida y carrera">
+            <p>4. ¿Cómo defines el éxito en tu vida y carrera?</p>
+            <form id="q4">
+                <label>
+                    <input type="radio" name="q4" value="correcto"> Lograr metas significativas y sentirme satisfecho/a con mi progreso
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="q4" value="incorrecto"> Tener reconocimiento y estatus, incluso si eso implica sacrificar la felicidad personal
+                </label>
+            </form>
+        </div>
+    
+        <!-- Pregunta 5 -->
+        <div class="question">
+            <img src="IMAGES/LOGO3.png" alt="Imagen relacionada con el plan de vida y carrera">
+            <p>5. ¿Cómo enfrentas los desafíos en tu vida y carrera?</p>
+            <form id="q5">
+                <label>
+                    <input type="radio" name="q5" value="correcto"> Busco soluciones y aprendizajes positivos, veo los desafíos como oportunidades de crecimiento
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="q5" value="incorrecto"> Me siento abrumado/a y me cuesta superar los obstáculos
+                </label>
+            </form>
+        </div>
+    
+        <button onclick="mostrarResultado()">Ver Resultado</button>
+    </div>
+    
+    <div class="popup" id="resultadoPopup">
+        <div class="popup-content">
+            <h2>Resultado</h2>
+            <p id="resultadoMensaje"></p>
+            <button onclick="cerrarPopup()">Cerrar</button>
+        </div>
+    </div>
+    
+    <script>
+        function mostrarResultado() {
+            // Obtener respuestas seleccionadas por el usuario
+            const respuestas = [];
+            respuestas.push(document.querySelector('input[name="q1"]:checked').value);
+            respuestas.push(document.querySelector('input[name="q2"]:checked').value);
+            respuestas.push(document.querySelector('input[name="q3"]:checked').value);
+            respuestas.push(document.querySelector('input[name="q4"]:checked').value);
+            respuestas.push(document.querySelector('input[name="q5"]:checked').value);
+    
+            // Calcula el puntaje
+            const respuestasCorrectas = respuestas.filter(respuesta => respuesta === 'correcto').length;
+            const respuestasIncorrectas = respuestas.length - respuestasCorrectas;
+    
+            // Muestra el resultado en el popup
+            const resultadoPopup = document.getElementById('resultadoPopup');
+            const resultadoMensaje = document.getElementById('resultadoMensaje');
+    
+            resultadoMensaje.textContent = `Tienes ${respuestasCorrectas} respuestas correctas y ${respuestasIncorrectas} respuestas incorrectas.`;
+            resultadoPopup.style.display = 'flex';
+        }
+    
+        function cerrarPopup() {
+            const resultadoPopup = document.getElementById('resultadoPopup');
+            resultadoPopup.style.display = 'none';
+        }
+    </script>
+    
+</body>
+</html>

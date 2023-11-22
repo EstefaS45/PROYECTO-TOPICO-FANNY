@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="CSS/vida.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIDA</title>
+    <style>
+        body{
+            background-image: url(IMAGES/BG2.gif);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="menu.html"><img src="IMAGES/LOGO3.png" alt="Logo" class="logo"></a>
+    </header>
+    <div id="content-container">
+        <div id="video-container">
+            <h2>Vídeo</h2>
+            <video controls>
+                <source src="IMAGES/VIDA.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div id="slider-container">
+            <h2>Información</h2>
+            <div class="slideshow-container">
+                <div class="mySlides">
+                    <img src="IMAGES/1.png" alt="Slide 1">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/2.png" alt="Slide 2">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/3.png" alt="Slide 3">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/4.png" alt="Slide 4">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/5.png" alt="Slide 5">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/6.png" alt="Slide 6">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/7.png" alt="Slide 7">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/8.png" alt="Slide 8">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/9.png" alt="Slide 9">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/10.png" alt="Slide 10">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/11.png" alt="Slide 11">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/12.png" alt="Slide 12">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/13.png" alt="Slide 13">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/14.png" alt="Slide 14">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/15.png" alt="Slide 15">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/16.png" alt="Slide 16">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/17.png" alt="Slide 17">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/18.png" alt="Slide 18">
+                </div>
+                <div class="mySlides">
+                    <img src="IMAGES/19.png" alt="Slide 19">
+                </div>
+                <!-- Repite este bloque para cada imagen -->
+                <!-- <div class="mySlides">
+                    <img src="IMAGES/2.png" alt="Slide 2">
+                </div> -->
+    
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+    
+            <div style="text-align:center">
+                <!-- Indicadores de diapositivas -->
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+                <span class="dot" onclick="currentSlide(6)"></span>
+                <span class="dot" onclick="currentSlide(7)"></span>
+                <span class="dot" onclick="currentSlide(8)"></span>
+                <span class="dot" onclick="currentSlide(9)"></span>
+                <span class="dot" onclick="currentSlide(10)"></span>
+                <span class="dot" onclick="currentSlide(11)"></span>
+                <span class="dot" onclick="currentSlide(12)"></span>
+                <span class="dot" onclick="currentSlide(13)"></span>
+                <span class="dot" onclick="currentSlide(14)"></span>
+                <span class="dot" onclick="currentSlide(15)"></span>
+                <span class="dot" onclick="currentSlide(16)"></span>
+                <span class="dot" onclick="currentSlide(17)"></span>
+                <span class="dot" onclick="currentSlide(18)"></span>
+                <span class="dot" onclick="currentSlide(19)"></span>
+                <!-- Repite este bloque para cada indicador -->
+                <!-- <span class="dot" onclick="currentSlide(2)"></span> -->
+            </div>
+        </div>
+    
+        <script>
+            let slideIndex = 1;
+    
+            function showSlides(n) {
+                let i;
+                const slides = document.getElementsByClassName("mySlides");
+                const dots = document.getElementsByClassName("dot");
+    
+                if (n > slides.length) {
+                    slideIndex = 1;
+                }
+    
+                if (n < 1) {
+                    slideIndex = slides.length;
+                }
+    
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+    
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+    
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
+    
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+    
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+    
+            showSlides(slideIndex);
+        </script>
+</body>
+</html>
